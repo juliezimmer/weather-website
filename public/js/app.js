@@ -1,13 +1,8 @@
-
-// has to be loaded in index.html with appropriate path
-console.log("Client-side Javascript file is loaded");
-
 // this selects the form attribute from index.hbs
-// this returns a JS representation of the form element that can be used to manipulate the element or do things when the user interacts with the element.
 const weatherForm = document.querySelector('form');
 
-// this gets the string the user entered in the search bar
-// the const search holds the value the user input in the search bar.
+// gets the string the user entered in the search bar
+// const search holds the value the user put in the search bar.
 const search = document.querySelector('input');
 
 const messageOne = document.querySelector('#message-one');
