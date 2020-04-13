@@ -11,6 +11,10 @@ const geocode = require('./utils/geocode');
 // stores the express app created by requiring it in the file
 const app = express(); 
 
+// sets port equal to the environment variable value
+// 'port' is eqaul to process.env.PORT if it exists, or 3001 if it does not.
+const port = process.env.PORT || 3001;
+
 // define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
@@ -77,18 +81,8 @@ app.get('/weather', (req, res) => {
             location,
             address: req.query.address
          })
-
       })
-      
-      
-
    })
-
-   // res.send({
-   //    forecast:"50 degrees",
-   //    location: "Minnneapolis",
-   //    address: req.query.address
-//   });
 });
 
 app.get('/products', (req, res) => {
@@ -105,8 +99,6 @@ app.get('/products', (req, res) => {
       proucts: []
    })
 });
-
-
 
 // matches any page that hasn't been matched that starts with '/help/'
 // help specific 404 response
@@ -128,6 +120,6 @@ app.get('*', (req, res) => {
    });
 });
 
-app.listen(3001, () => {
-   console.log("The server is running on port 3001");
+app.listen(port, () => {
+   console.log(`The server is running on port ${port}`);
 });  
